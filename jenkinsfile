@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the source code from Git repository
+                git 'https://github.com/Sushant-Mavenberg/jenkins.git'
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+                // Install Python dependencies using pip
+                sh 'pip install -r requirements.txt'
+            }
+        }
+        
+        stage('Run Tests') {
+            steps {
+                // Run tests using pytest or any testing framework
+                sh 'pytest'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Optionally, perform any build steps here
+            }
+        }
+        
+        stage('Deploy') {
+            when {
+                // Optionally, trigger deployment based on branch or condition
+                branch 'master'
+            }
+            steps {
+                // Optionally, deploy your application
+                // sh 'python deploy.py'
+            }
+        }
+    }
+    
+    post {
+        always {
+            // Clean up or perform any post-build actions here
+        }
+    }
+}
