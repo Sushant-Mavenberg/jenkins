@@ -24,10 +24,10 @@ pipeline {
         }
         
         stage('Deploy') {
-            when {
-                // Trigger deployment only on the master branch
-                branch 'master'
-            }
+            // when {
+            //     // Trigger deployment only on the master branch
+            //     branch 'master'
+            // }
             steps {
                 // Placeholder message for deployment
                 echo 'Deploying application...'
