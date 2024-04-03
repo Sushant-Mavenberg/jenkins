@@ -18,25 +18,19 @@ pipeline {
         
         stage('Run Tests') {
             steps {
-                // Run tests using pytest or any testing framework
-                sh 'pytest'
-            }
-        }
-        
-        stage('Build') {
-            steps {
-                // Optionally, perform any build steps here
+                // Placeholder message for running tests
+                echo 'Running tests...'
             }
         }
         
         stage('Deploy') {
             when {
-                // Optionally, trigger deployment based on branch or condition
+                // Trigger deployment only on the master branch
                 branch 'master'
             }
             steps {
-                // Optionally, deploy your application
-                // sh 'python deploy.py'
+                // Placeholder message for deployment
+                echo 'Deploying application...'
             }
         }
     }
@@ -44,6 +38,7 @@ pipeline {
     post {
         always {
             // Clean up or perform any post-build actions here
+            echo 'Pipeline execution completed.'
         }
     }
 }
